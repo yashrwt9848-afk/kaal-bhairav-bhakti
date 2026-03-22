@@ -1,0 +1,108 @@
+/* GENERAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* BODY */
+body {
+  background: #121212;
+  color: #fff;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+header .left-img,
+header .right-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+header .center-text {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* HERO ITEMS */
+.hero-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: #1f1f1f;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.hero-item.left img { order: 1; }
+.hero-item.left .hero-text { order: 2; text-align: left; }
+
+.hero-item.right img { order: 2; }
+.hero-item.right .hero-text { order: 1; text-align: right; }
+
+.hero-item.center { flex-direction: column; text-align: center; }
+
+.hero-item img {
+  max-width: 300px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+/* HERO TEXT */
+.hero-text h1 { margin-bottom: 10px; color: gold; }
+.hero-text p { color: #ccc; }
+
+/* CARD / SECTION */
+.card { background: #1a1a1a; padding: 15px; margin-bottom: 20px; border-radius: 10px; }
+
+/* BUTTONS */
+button {
+  padding: 10px 20px;
+  background: orange;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+button:hover { background: #ff6600; }
+
+/* PREMIUM BUTTON */
+.pay-btn { background: red; color: #fff; font-weight: bold; }
+.pay-btn:hover { background: #ff3333; }
+
+/* VIDEO BOXES */
+.video-box { margin-bottom: 15px; text-align: center; }
+.video-box iframe { width: 100%; max-width: 400px; height: 225px; border-radius: 10px; }
+
+/* AUDIO CONTROL */
+audio { width: 100%; max-width: 400px; margin-top: 10px; border-radius: 5px; }
+
+/* FOOTER */
+footer { margin-top: 20px; text-align: center; color: #999; }
+footer img { width: 40px; margin-top: 5px; }
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .hero-item { flex-direction: column !important; text-align: center !important; }
+  .hero-item.left .hero-text,
+  .hero-item.right .hero-text { order: 2 !important; text-align: center !important; }
+  header { flex-direction: column; gap: 10px; }
+}

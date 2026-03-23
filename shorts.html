@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-<title>Shorts</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Shorts</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-<script src="script.js"></script>
-<script>freeAutoUpgrade();</script>
 
+<!-- Top Header -->
 <header>
   <img src="amit.jpeg" class="left-img" alt="My Pic">
-  <div class="center-text"><span>🔱</span> Jai Shree Kaal Bhairav 🔱</div>
+  <div class="center-text">🔱 Jai Shree Kaal Bhairav 🔱</div>
   <img src="SHREE KAAL BHAIRAV.jpeg" class="right-img" alt="Bhairav Ji">
 </header>
 
 <h1>🔥 Shorts Collection</h1>
 
+<!-- Video 1 -->
 <div class="video-box">
-  <iframe src="मेरे तन में भी शिव, मेरे मन में भी शिव – Bal Shiva Version  Full Video Song.mp4" allow="autoplay"></iframe>
+  <video controls autoplay loop muted playsinline>
+    <source src="मेरे तन में भी शिव.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
   <p>Short Video 1</p>
 </div>
 
+<!-- Video 2 -->
 <div class="video-box">
-  <iframe src="Roar of Narsimha Hindi  Avinash Saha  Mahavatar Narsimha  music hombalefilms.mp4" allow="autoplay"></iframe>
+  <video controls autoplay loop muted playsinline>
+    <source src="Roar of Narsimha.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
   <p>Short Video 2</p>
 </div>
 
+<!-- Home Button -->
 <br>
 <button onclick="goHome()">🏠 Home</button>
+
 </body>
 </html>

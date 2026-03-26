@@ -1,27 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <body>
-
-<header>
-  <h1>Shree Kaal Bhairav Bhakti</h1>
-</header>
-
-<!-- Baaki tera content -->
-<title>Payment</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Kaal Bhairav Premium</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
-<body>
-<h1>🔱 Kaal Bhairav Premium 🔱</h1>
-<p>Premium Bhakti Videos Unlock karein 🙏</p>
-<h2 style="color:gold;">₹199 Only</h2>
+<body style="text-align:center; font-family:sans-serif;">
 
-<button onclick="paymentSuccess()">💳 Pay Now</button>
-<br>
-<button onclick="goHome()">⬅ Back</button>
-<p class="small">(Demo Payment)</p>
+  <h1>🔱 Kaal Bhairav Premium</h1>
 
-<script src="script.js"></script>
+  <button onclick="openRazorpay('trial')">₹1 Trial (3 Days)</button>
+  <br><br>
+  <button onclick="openRazorpay('full')">Buy Premium ₹199 (7 Days)</button>
+
+<script>
+// ======================
+// CHECK PREMIUM (AUTO REDIRECT)
+// ======================
+(function(){
+    let isPremium = localStorage.getItem("isPremium");
+    let premiumExpiry = localStorage.getItem("premiumExpiry");
+
+    if(isPremium === "true" && premiumExpiry && Date.now() < parseInt(premiumExpiry)) {
+        window.location.href = "premium.html";
+    }
+})();
+
+// ======================
+// PAYMENT FUNCTION
+// ======================
+function openRazorpay(planType) {
+
+    let amount = planType === "trial" ? 100 : 19900;
+
+    let options = {
+        key: "rzp_live_SUKvoNdYYcy1TK",
+        amount: amount,
+        currency: "INR",
+        name: "Kaal Bhairav Premium",
+        description: planType === "trial" ? "₹1 Trial - 3 Days" : "Premium - 7 Days",
+
+        handler: function(response){
+
+            localStorage.setItem("isPremium", "true");
+
+            let expiry;
+
+            if(planType === "trial") {
+                expiry = Date.now() + 3*24*60*60*1000;
+            } else {
+                expiry = Date.now() + 7*24*60*60*1000;
+            }
+
+            localStorage.setItem("premiumExpiry", expiry);
+
+            alert("✅ Payment Successful 🔱");
+            window.location.href = "premium.html";
+        },
+
+        theme: { color: "#ff0000" },
+
+        modal: {
+            ondismiss: function(){
+                alert("❌ Payment Cancelled");
+            }
+        }
+    };
+
+    let rzp = new Razorpay(options);
+    rzp.open();
+}
+</script>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ function checkPremium() {
 function openRazorpay() {
     let options = {
         key: "rzp_live_SUKvoNdYYcy1TK", // ✅ Tumhara live key
-        amount: 19900, // ₹199 in paise
+      amount: 100, // ₹1 trial (100 paise)
         currency: "INR",
         name: "Kaal Bhairav Premium",
         description: "Unlock Exclusive Bhakti Videos",
